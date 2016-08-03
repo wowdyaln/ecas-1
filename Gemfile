@@ -43,3 +43,7 @@ group :development, :test do
   gem 'spring'
 end
 
+group :development do
+  gem "brakeman", require: false
+  gem "rails_best_practices", require: false
+end
