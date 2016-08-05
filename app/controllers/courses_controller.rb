@@ -19,7 +19,7 @@ class CoursesController < ApplicationController
     @course = Course.create(course_params)
 
     if @course.save
-      redirect_to courses_path
+      redirect_to courses_path, notice: "新增課程成功！"
     else
       render :new
     end
@@ -30,6 +30,15 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
   end
 
+  def update
+    @course = Course.find(params[:id])
+
+    if @course.update(course_params)
+      redirect_to course_path(@course), notice: "修改課程成功！"
+    else
+      render :edit
+    end
+  end
 
 
   private
