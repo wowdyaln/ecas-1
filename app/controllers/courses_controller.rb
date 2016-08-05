@@ -41,6 +41,17 @@ class CoursesController < ApplicationController
   end
 
 
+  def destroy
+    @course = Course.find(params[:id])
+
+    if @course.destroy
+      redirect_to courses_path, alert: "此課程已經刪除！"
+    else
+      render :index
+    end
+  end
+
+
   private
 
   def course_params

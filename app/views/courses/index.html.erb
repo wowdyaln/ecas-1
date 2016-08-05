@@ -19,7 +19,7 @@
     <tbody>
       <% @courses.each do |course| %>
         <tr>
-          <td>#</td>
+          <td><%= course.id %></td>
           <td><%= link_to(course.title, course_path(course)) %></td>
           <td><%= course.description %></td>
           <td><%= course.open_date %></td>
