@@ -1,6 +1,14 @@
 <div class="col-md-12">
   <div class="group">
-    <%= link_to("預約課程", "#", class: "btn btn-primary pull-right")%>
+
+    <% if current_user.present? %>
+  <% if current_user.is_student_of?(@course) %>
+    <%= link_to("取消預約", cancel_reserve_course_path(@course), method: :post, class: "btn btn-danger") %>
+  <% else %>
+    <%= link_to("預約課程", reserve_course_path(@course), method: :post, class: "btn btn-info") %>
+  <% end %>
+<% end %>
+
   </div>
   <h2>課程主題：<%= @course.title %></h2>
   <p>課程大綱：<%= @course.description %></p>
