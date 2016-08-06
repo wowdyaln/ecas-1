@@ -54,6 +54,35 @@ class CoursesController < ApplicationController
     end
   end
 
+#-----------------------------------------------------#
+
+  def reserve
+    @course = Course.find(params[:id])
+
+    if !current_user.is_student_of?(@course)
+      current_user.reserve!(@course)
+      flash[:notice] = "你已經成功預約 #{@course.title} 了！"
+
+    else
+      flash[:warning] = "你有預約過此 course 了"
+    end
+
+    redirect_to course_path(@course)
+  end
+
+  def cancel_reserve
+    @course = Course.find(params[:id])
+
+    if current_user.is_student_of?(@course)
+      current_user.cancel_reserve!(@course)
+      flash[:warning] = "你已經取消預約 #{@course.title} 課程，後回有期~"
+    else
+      flash[:danger] = "你還沒有預約呢~"
+    end
+
+    redirect_to course_path(@course)
+  end
+
 
   private
 
