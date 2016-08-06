@@ -14,5 +14,15 @@ class User < ActiveRecord::Base
   end
 
 
+  def reserve!(course)
+    lessons << course
+  end
+
+  def cancel_reserve!(course)
+    lessons.delete(course)
+  end
+
+
+
 
 end
