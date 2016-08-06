@@ -1,0 +1,35 @@
+
+<div class="col-md-12">
+
+  <table class="table table-hover">
+
+    <div class="group">
+    <%= link_to("新增課程", new_course_path, class: "btn btn-primary pull-right") %>
+    </div>
+
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>課程 Title</td>
+        <td>課程 Description</td>
+        <td>開課日期</td>
+        <td>花費點數</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @courses.each do |course| %>
+        <tr>
+          <td><%= course.id %></td>
+          <td><%= link_to(course.title, course_path(course)) %></td>
+          <td><%= course.description %></td>
+          <td><%= course.open_date %></td>
+          <td><%= course.cost_chip %></td>
+          <td>
+            <%= link_to("Edit", edit_course_path(course), class: "btn btn-sm btn-default")%>
+            <%= link_to("Delete", course_path(course),class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?" } )%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
