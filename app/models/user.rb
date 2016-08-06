@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   has_many :course_users
   has_many :lessons, through: :course_users, source: :course
 
-
+  def is_student_of?(course)
+    lessons.include?(course)
+  end
 
 
 
