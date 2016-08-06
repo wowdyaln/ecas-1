@@ -54,3 +54,7 @@ group :development do
   gem "brakeman", require: false
   gem "rails_best_practices", require: false
 end
+
+group :production do
+  gem "rails_12factor"
+end
