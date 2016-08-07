@@ -1,0 +1,14 @@
+<div class="col-md-4 col-md-offset-4">
+  <h1>新增課程</h1>
+
+  <hr>
+  <%= simple_form_for [:admin, @course] do |f| %>
+    <div class="form-group">
+      <%= f.input :title, input_html: { value: g_title(@course), class: "form-control"} %>
+      <%= f.input :description, input_html: { value: g_string(@course), class: "form-control"} %>
+      <%= f.input :date, input_html: { class: "form-control"} %>
+      <%= f.input :cost, input_html: { value: 1, class: "form-control"} %>
+    </div>
+    <%= f.submit "確定新增", disable_with: 'Submitting...', class: "btn btn-primary"%>
+  <% end %>
+</div>

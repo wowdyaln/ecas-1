@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -20,6 +21,11 @@ Rails.application.routes.draw do
         post :cancel_reserve
       end
     end
+
+    namespace :admin do
+      get 'index' => 'core#index'
+      resources :courses
+    end  
   # Example resource route with options:
   #   resources :products do
   #     member do

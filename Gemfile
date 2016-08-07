@@ -29,6 +29,9 @@ gem 'bootstrap-sass'
 
 gem 'simple_form'
 
+gem "font-awesome-rails"
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -53,6 +56,10 @@ end
 group :development do
   gem "brakeman", require: false
   gem "rails_best_practices", require: false
+  gem "awesome_rails_console"
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'  
 end
 
 group :production do
