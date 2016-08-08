@@ -1,3 +1,61 @@
 <%= link_to "新增課程", new_admin_course_path %>
 <%= link_to "所有課程", admin_courses_path %>
+<hr>
+
+
+<table class="table table-bordered table-striped table-hover">
+	<thead>
+  	<tr class="calendar-head">
+  		<th>Sun</th>
+  		<th>Mon</th>
+  		<th>Tue</th>
+  		<th>Wed</th>
+  		<th>Thu</th>
+  		<th>Fri</th>
+  		<th>Sat</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<tr>
+  		<h1 class="center"><%= @date.strftime("%Y年 %m月") %><h1>
+  	</tr>
+  	<% @calendar_rows.each do |row| %>
+  	  <tr>
+  	  	<% row.each do |cell| %>
+  	  		<td class=" aaa calendar-td">
+  	  			<p><%= cell["day"] %></p>
+  	  			<% if !cell["course"] && cell["day"] %>
+  	  				<%= link_to new_admin_course_path(query_date(@date, cell)), class: "small" do %>
+							  <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
+							<% end %>
+  	  			<% end %>
+  	  			<p>
+  	  				<%= link_to cell["title"], course_path(cell["id"]) if cell["course"] %>
+  	  				<% if cell["title"] %>
+  	  					<%= link_to edit_admin_course_path(cell["id"]), class: "pull-right" do %>
+  	  						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+  	  					<% end %>	
+  	  				<% end %>
+  	  			</p>
+  	  			<p class="font-13"><%= cell["description"] %></p>
+  	  		</td>
+  	  	<% end %>	
+  	  </tr>
+  	<% end %>  
+  </tbody>
+</table>
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+    <%= link_to admin_index_path(date: @date.next_month), class: "pull-right" do %>
+    	<%= "Next (#{@date.next_month.month}月)" %>
+    	<i class="fa fa-angle-double-right fa-lg" aria-hidden="true"></i>
+    <% end %>
+    
+    <%= link_to admin_index_path(date: @date.prev_month), class: "pull-left" do %>
+    	<i class="fa fa-angle-double-left fa-lg" aria-hidden="true"></i>
+    	<%= "Prev (#{@date.prev_month.month}月)" %>
+    <% end %>	
+  </div>
+</div>
 

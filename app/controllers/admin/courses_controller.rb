@@ -11,7 +11,9 @@ class Admin::CoursesController < AdminController
 	def create
 		@course = Course.create(course_params)
 		if @course.save
+
 			flash[:success] = "success~"
+
 			redirect_to admin_index_path
 		else
 			render :new	
@@ -19,11 +21,18 @@ class Admin::CoursesController < AdminController
 	end
 
 	def edit
-		
+    @course = Course.find(params[:id])
 	end
 
 	def update
-		
+    @course = Course.find(params[:id])
+
+    if @course.update(course_params)
+    	flash[:success] = "已儲存修改"
+      redirect_to course_path(@course)
+    else
+      render :edit
+    end		
 	end
 
 	def destroy

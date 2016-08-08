@@ -1,0 +1,21 @@
+.calendar-head {
+	background: darken(#aac1bf, 12%);
+}
+
+
+.calendar-td {
+	width: 14%;
+	height: 130px;
+	background: #aac1bf;
+	color: #fff;
+	&:hover {
+		background: $bg;
+		color: #333;
+	}
+	a {
+		color: #2c9ab7;
+		&:hover {
+			color: darken(#2c9ab7, 10%);
+		}
+	}
+}
