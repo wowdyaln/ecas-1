@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :show
 
 
 
@@ -87,7 +87,7 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-  params.require(:course).permit(:title, :description, :open_date, :cost_chip)
+  params.require(:course).permit(:title, :description, :date, :cost)
   end
 
 
