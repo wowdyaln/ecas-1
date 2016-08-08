@@ -3,9 +3,6 @@
 
   <table class="table table-hover">
 
-    <div class="group">
-    <%= link_to("新增課程", new_course_path, class: "btn btn-primary pull-right") %>
-    </div>
 
     <thead>
       <tr>
@@ -24,10 +21,6 @@
           <td><%= course.description %></td>
           <td><%= course.date %></td>
           <td><%= course.cost %></td>
-          <td>
-            <%= link_to("Edit", edit_course_path(course), class: "btn btn-sm btn-default")%>
-            <%= link_to("Delete", course_path(course),class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?" } )%>
-          </td>
         </tr>
       <% end %>
     </tbody>
