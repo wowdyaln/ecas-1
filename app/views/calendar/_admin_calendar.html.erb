@@ -17,10 +17,10 @@
   	<% @calendar.each do |each_row| %>
   	  <tr>
   	  	<% each_row.each do |cell| %>
-  	  		<td class=" aaa calendar-td">
+  	  		<td class="calendar-td">
   	  			<p><%= cell["day"] %></p>
   	  			<% if !cell["course"] && cell["day"] %>
-  	  				<%= link_to new_admin_course_path(query_date(@date, cell)), class: "small" do %>
+  	  				<%= link_to new_admin_course_path(query_date(@date, cell["day"])), class: "small" do %>
 							  <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
 							<% end %>
   	  			<% end %>
