@@ -13,4 +13,24 @@ protected
 	 devise_parameter_sanitizer.for(:account_update) << :name
 	end
 
+private 
+	def set_admin_calendar
+		@date = params["date"] ? params["date"].to_date : Date.current
+		courses = Course.find_courses(@date)
+		@calendar = Calendar.generate_calendar(@date, courses)		
+	end
+
+	def set_user_calendar
+		@date = params["date"] ? params["date"].to_date : Date.current
+		reserved_courses = current_user.lessons.find_courses(@date)
+		courses = Course.find_courses(@date)
+		@calendar = Calendar.generate_user_calendar(@date, courses, reserved_courses)		
+	end
+
+	def set_basic_calendar
+		@date = params["date"] ? params["date"].to_date : Date.current
+		courses = Course.find_courses(@date)
+		@calendar = Calendar.generate_calendar(@date, courses)		
+	end
+
 end
