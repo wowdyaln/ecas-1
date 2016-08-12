@@ -15,12 +15,14 @@ protected
 
 private 
 	def set_admin_calendar
+		@calendar_type = "admin"
 		@date = params["date"] ? params["date"].to_date : Date.current
 		courses = Course.find_courses(@date)
-		@calendar = Calendar.generate_calendar(@date, courses)		
+		@calendar = Calendar.generate_calendar(@date, courses)
 	end
 
 	def set_user_calendar
+		@calendar_type = "user"
 		@date = params["date"] ? params["date"].to_date : Date.current
 		reserved_courses = current_user.lessons.find_courses(@date)
 		courses = Course.find_courses(@date)
@@ -28,6 +30,7 @@ private
 	end
 
 	def set_basic_calendar
+		@calendar_type = "basic"
 		@date = params["date"] ? params["date"].to_date : Date.current
 		courses = Course.find_courses(@date)
 		@calendar = Calendar.generate_calendar(@date, courses)		
