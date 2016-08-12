@@ -1,0 +1,43 @@
+<table class="table table-bordered calendar-table">
+	<thead>
+  	<tr class="calendar-head">
+  		<th>Sun</th>
+  		<th>Mon</th>
+  		<th>Tue</th>
+  		<th>Wed</th>
+  		<th>Thu</th>
+  		<th>Fri</th>
+  		<th>Sat</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<tr>
+  		<h1 class="center"><%= @date.strftime("%Y年 %m月") %><h1>
+  	</tr>
+  	<% @calendar.each do |each_row| %>
+  	  <tr>
+  	  	<% each_row.each do |cell| %>
+  	  		<td class=" aaa calendar-td">
+  	  			<p><%= cell["day"] %></p>
+  	  			<% if !cell["course"] && cell["day"] %>
+  	  				<%= link_to new_admin_course_path(query_date(@date, cell)), class: "small" do %>
+							  <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
+							<% end %>
+  	  			<% end %>
+  	  			<p>
+  	  				<%= link_to cell["title"], course_path(cell["id"]) if cell["course"] %>
+  	  				<% if cell["title"] %>
+  	  					<%= link_to edit_admin_course_path(cell["id"]), class: "pull-right" do %>
+  	  						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+  	  					<% end %>	
+  	  				<% end %>
+  	  			</p>
+  	  			<p class="font-13"><%= cell["description"] %></p>
+  	  		</td>
+  	  	<% end %>	
+  	  </tr>
+  	<% end %>  
+  </tbody>
+</table>
+
+<%= render 'calendar/month_options' %>

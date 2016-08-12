@@ -1,3 +1,8 @@
+
+.calendar-table {
+	background: #aac1bf;
+}
+
 .calendar-head {
 	background: darken(#aac1bf, 12%);
 }
@@ -6,7 +11,6 @@
 .calendar-td {
 	width: 14%;
 	height: 130px;
-	background: #aac1bf;
 	color: #fff;
 	&:hover {
 		background: $bg;
@@ -16,6 +20,28 @@
 		color: #2c9ab7;
 		&:hover {
 			color: darken(#2c9ab7, 10%);
+		}
+	}
+}
+
+.reserved {
+	background: #dd5143;
+	a {
+		color: #444;
+	}
+	.reserved-mark {
+		float: right;
+		font-weight: bold;
+	}
+	&:hover {
+		.reserved-mark {
+			color: #dd5143;
+		}
+		a {
+			color: #2c9ab7;
+			&:hover {
+				color: darken(#2c9ab7, 10%);;
+			}
 		}
 	}
 }

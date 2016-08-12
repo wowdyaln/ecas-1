@@ -1,0 +1,36 @@
+<table class="table table-bordered calendar-table">
+	<thead>
+  	<tr class="calendar-head">
+  		<th>Sun</th>
+  		<th>Mon</th>
+  		<th>Tue</th>
+  		<th>Wed</th>
+  		<th>Thu</th>
+  		<th>Fri</th>
+  		<th>Sat</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<tr>
+  		<h1 class="center"><%= @date.strftime("%Y年 %m月") %><h1>
+  	</tr>
+  	<% @calendar.each do |each_row| %>
+  	  <tr>
+  	  	<% each_row.each do |cell| %>
+  	  		<td class="calendar-td <%= cell["state"] %>">
+  	  			<p>
+              <%= cell["day"] %> 
+              <span class="reserved-mark"><%= "已預約" if cell["state"] == "reserved" %></span>
+            </p>
+  	  			<p>
+  	  				<%= link_to cell["title"], course_path(cell["id"]) if cell["course"] %>
+  	  			</p>
+  	  			<p class="font-13"><%= cell["description"] %></p>
+  	  		</td>
+  	  	<% end %>	
+  	  </tr>
+  	<% end %>  
+  </tbody>
+</table>
+
+<%= render 'calendar/month_options' %>
