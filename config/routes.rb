@@ -29,7 +29,9 @@ Rails.application.routes.draw do
 
     namespace :account do
       get 'index' => 'user#index'
-     end 
+      get 'purchase' => 'user#purchase'
+      post 'add_chip' => 'user#add_chip'
+     end
   # Example resource route with options:
   #   resources :products do
   #     member do
