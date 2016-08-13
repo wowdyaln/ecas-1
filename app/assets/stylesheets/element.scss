@@ -1,12 +1,13 @@
 /* 按鈕 */
 
 .btn-1 {
-	background: #479ccf;
-	color: #fff;
-	border-radius: 5px;
+	font-size: 13px;
+	border: 1px solid #479ccf;
+	color: darken(#479ccf, 10%);
+	border-radius: 3px;
 	padding: 5px 10px;
 	&:hover {
-		background: darken(#479ccf, 12%);
+		background: #479ccf;
 		color: #fff;
 	}
 }
@@ -21,12 +22,12 @@
 
 
 .btn-cancel {
-	background: #ff4c4c;
+	background: $red;
 	color: #fff;
 	border-radius: 5px;
 	padding: 5px 10px;
 	&:hover {
-		background: darken(#ff4c4c, 12%);
+		background: darken($red, 12%);
 		color: #fff;
 	}
 }

@@ -18,7 +18,7 @@ class Account::UserController < ApplicationController
 	end
 
 	def courses_list
-		@courses = current_user.courses
+		@courses = current_user.courses.order(date: :DESC)
 	end
 
 end

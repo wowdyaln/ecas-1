@@ -1,7 +1,7 @@
 class Admin::CoursesController < AdminController
 
 	def index
-		@courses = Course.all
+		@courses = Course.order(date: :DESC)
 	end
 
 	def new
