@@ -1,4 +1,5 @@
-<h2> 購買點數 </h2>
+<h2> 購買點數 </h2><br>
+<h4>你目前有（<%= current_user.chip %>）點</h4>
 
 <%= form_tag account_buy_chip_path, method: :post do %>
   <%= number_field_tag(:chip, nil) %>

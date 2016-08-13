@@ -1,4 +1,4 @@
-<h2>我已預約課程</h2>
+<h2>已預約的課程</h2>
 
 
 <div class="col-md-12">
@@ -23,7 +23,7 @@
           <td><%= course.description %></td>
           <td><%= course.date %></td>
           <td><%= course.cost %></td>
-          <td><%= link_to "取消預約", cancel_reserve_course_path(course), method: "post" %></td>
+          <td><%= render_cancel_reserve_btn(course) %></td>
         </tr>
       <% end %>
     </tbody>
