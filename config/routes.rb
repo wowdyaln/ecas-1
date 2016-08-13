@@ -30,8 +30,11 @@ Rails.application.routes.draw do
     namespace :account do
       get 'index' => 'user#index'
       get 'purchase' => 'user#purchase'
-      post 'add_chip' => 'user#add_chip'
+      post 'buy_chip' => 'user#buy_chip'
+      get 'courses_list' => 'user#courses_list'
      end
+
+
   # Example resource route with options:
   #   resources :products do
   #     member do
