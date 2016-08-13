@@ -2,14 +2,16 @@
     <div class="col-md-8 col-md-offset-2">
     <%= link_to({controller: controller.controller_name, action: controller.action_name,
     date: @date.next_month}, class: "pull-right") do %>
-        <%= "Next (#{@date.next_month.month}月)" %>
+        Next
+        <span class="small">(<%= @date.next_month.strftime("%B") %>)</span>
         <i class="fa fa-angle-double-right fa-lg" aria-hidden="true"></i>
     <% end %>
     
     <%= link_to({controller: controller.controller_name, action: controller.action_name,
     date: @date.prev_month}, class: "pull-left") do %>
         <i class="fa fa-angle-double-left fa-lg" aria-hidden="true"></i>
-        <%= "Prev (#{@date.prev_month.month}月)" %>
+        Prev
+        <span class="small">(<%= @date.prev_month.strftime("%B") %>)</span>
     <% end %>   
   </div>
 </div>
