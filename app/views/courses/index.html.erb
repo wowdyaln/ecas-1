@@ -10,6 +10,7 @@
         <td>課程 Description</td>
         <td>開課日期</td>
         <td>花費點數</td>
+        <td>預約課程</td>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
           <td><%= course.description %></td>
           <td><%= course.date %></td>
           <td><%= course.cost %></td>
+          <td><%= render_reserve_btn(course) %></td>
         </tr>
       <% end %>
     </tbody>
