@@ -18,3 +18,15 @@
 	padding: 3px 5px;
 
 }
+
+
+.btn-cancel {
+	background: #ff4c4c;
+	color: #fff;
+	border-radius: 5px;
+	padding: 5px 10px;
+	&:hover {
+		background: darken(#ff4c4c, 12%);
+		color: #fff;
+	}
+}
