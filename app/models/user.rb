@@ -7,19 +7,19 @@ class User < ActiveRecord::Base
 
 
   has_many :course_users
-  has_many :lessons, through: :course_users, source: :course
+  has_many :courses, through: :course_users
 
   def is_student_of?(course)
-    lessons.include?(course)
+    courses.include?(course)
   end
 
 
   def reserve!(course)
-    lessons << course
+    courses << course
   end
 
   def cancel_reserve!(course)
-    lessons.delete(course)
+    courses.delete(course)
   end
 
 

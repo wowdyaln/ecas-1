@@ -25,7 +25,7 @@ class CoursesController < ApplicationController
       flash[:warning] = "你有預約過此 course 了"
     end
 
-    redirect_to course_path(@course)
+    redirect_to account_index_path
   end
 
   def cancel_reserve
@@ -33,12 +33,12 @@ class CoursesController < ApplicationController
 
     if current_user.is_student_of?(@course)
       current_user.cancel_reserve!(@course)
-      flash[:warning] = "你已經取消預約 #{@course.title} 課程，後回有期~"
+      flash[:warning] = "你已經取消預約 #{@course.title} 課程，後會有期~"
     else
       flash[:danger] = "你還沒有預約呢~"
     end
 
-    redirect_to course_path(@course)
+    redirect_to account_index_path
   end
 
 
