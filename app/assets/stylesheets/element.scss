@@ -1,0 +1,20 @@
+/* 按鈕 */
+
+.btn-1 {
+	background: #479ccf;
+	color: #fff;
+	border-radius: 5px;
+	padding: 5px 10px;
+	&:hover {
+		background: darken(#479ccf, 12%);
+		color: #fff;
+	}
+}
+
+.btn-disable {
+	background: gray;
+	color: #fff;
+	border-radius: 5px;
+	padding: 3px 5px;
+
+}
