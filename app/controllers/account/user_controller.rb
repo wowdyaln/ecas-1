@@ -17,4 +17,8 @@ class Account::UserController < ApplicationController
 		redirect_to account_index_path
 	end
 
+	def courses_list
+		@courses = current_user.courses
+	end
+
 end

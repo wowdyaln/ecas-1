@@ -12,7 +12,7 @@ class Course < ActiveRecord::Base
   scope :courses_in_this_month, -> (date) {where(date: (date.beginning_of_month)..date.end_of_month)}
 
 
-  def is_lesson_of?(user)
+  def is_course_of?(user)
     students.include?(user)
   end
 
