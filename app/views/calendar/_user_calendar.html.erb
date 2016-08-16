@@ -9,11 +9,14 @@
   		<th>Fri</th>
   		<th>Sat</th>
   	</tr>
+    <tr>
+      <h1 class="center"><%= @date.strftime("%Y %B") %><h1>
+    </tr>
+    <tr>
+      <%= link_to "返回當前月份", controller: controller.controller_name, action: controller.action_name %>
+    </tr>    
   </thead>
   <tbody>
-  	<tr>
-  		<h1 class="center"><%= @date.strftime("%Y %B") %><h1>
-  	</tr>
   	<% @calendar.each do |each_row| %>
   	  <tr>
   	  	<% each_row.each do |cell| %>
@@ -25,7 +28,7 @@
   	  			<p>
   	  				<%= link_to cell["title"], course_path(cell["id"]) if cell["course"] %>
   	  			</p>
-  	  			<p class="font-13"><%= cell["description"] %></p>
+  	  			<p class="font-13"><%= cell["description"].truncate(50) if cell["description"] %></p>
   	  		</td>
   	  	<% end %>	
   	  </tr>
