@@ -7,14 +7,17 @@
     </div>
 
     <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "我的行事曆", account_index_path %></li>
-        <li><%= link_to "預約課程", courses_path %></li>
-        <li><%= link_to "取消預約", account_courses_list_path %></li>
-        <li><a href="#">我的報到</a></li>
-        <li><a href="#">user name</a></li>
-        <li><a href="#">我的訂單</a></li>
-        <li><%= link_to "購買點數 ", account_purchase_path %></li>
+      <ul class="nav navbar-nav features">
+        <li><a href="/account/index"><span class="glyphicon glyphicon-calendar"></span></a></li>
+        <li><a href="/courses"><span class="glyphicon glyphicon-ok-sign"></a></span></li>
+        <li><a href="/account/courses_list"><span class="glyphicon glyphicon-remove-sign"></a></span></li>
+            <!-- 我的報到 -->
+        <li><a href="#"><span class="glyphicon glyphicon-edit"></span></a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+
+        <!-- 我的訂單 -->
+        <li><a href="#"><span class="glyphicon glyphicon-barcode"></span></a></li>
+        <li><a href="/account/purchase"><span class="glyphicon glyphicon-shopping-cart"></a></span></li>
         <li><p class="navbar-text">你目前有 (<%= current_user.chip %>) 點</p></li>
       </ul>
 

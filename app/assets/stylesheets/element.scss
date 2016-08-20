@@ -31,3 +31,14 @@
 		color: #fff;
 	}
 }
+
+
+/* ============= navbar ============= */
+
+.features .glyphicon{
+	font-size: 32px;
+	color: #479ccf;
+	&:hover {
+		color: darken(#479ccf, 20%);
+	}
+}
