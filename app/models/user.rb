@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
     courses.delete(course)
   end
 
+#選擇點數為0 的 user
+  scope :nochip, -> {where("chip = 0")}
+
+
 
 
 
