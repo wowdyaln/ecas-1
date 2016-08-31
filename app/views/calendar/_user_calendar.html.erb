@@ -14,15 +14,16 @@
     </tr>
     <tr>
       <%= link_to "返回當前月份", controller: controller.controller_name, action: controller.action_name %>
-    </tr>    
+    </tr>
   </thead>
   <tbody>
+
   	<% @calendar.each do |each_row| %>
   	  <tr>
   	  	<% each_row.each do |cell| %>
   	  		<td class="calendar-td <%= cell["state"] %>">
   	  			<p>
-              <%= cell["day"] %> 
+              <%= cell["day"] %>
               <span class="reserved-mark"><%= "已預約" if cell["state"] == "reserved" %></span>
             </p>
   	  			<p>
@@ -30,9 +31,9 @@
   	  			</p>
   	  			<p class="font-13"><%= cell["description"].truncate(50) if cell["description"] %></p>
   	  		</td>
-  	  	<% end %>	
+  	  	<% end %>
   	  </tr>
-  	<% end %>  
+  	<% end %>
   </tbody>
 </table>
 
