@@ -4,6 +4,7 @@ body {
   font-family:  Helvetica, sans-serif;
   font-size: 15px;
   background: $bg;
+  padding-top: 70px;
   word-wrap: break-all;
   a {
     font-family:  Helvetica, sans-serif;
@@ -11,5 +12,5 @@ body {
     &:hover {
       text-decoration: none;
     }
-  }  
+  }
 }

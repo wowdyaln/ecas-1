@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       get 'index' => 'core#index'
+      get 'list' => 'core#list'
       resources :courses
     end
 
